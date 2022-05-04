@@ -12,6 +12,8 @@ if (DEBUG_MODE)
     set(CMAKE_BUILD_TYPE DEBUG)
 endif()
 
+add_subdirectory(test/googletest)
+enable_testing()
 add_library(LIBRARIES 
     STATIC 
         ${PROJECT_SOURCE_DIR}/src/add/add.cpp
@@ -25,3 +27,4 @@ target_include_directories(LIBRARIES
 add_executable(main ${SOURCE})
 target_link_libraries(main PUBLIC LIBRARIES)
 # If tests are to be compiled
+add_subdirectory(test)
